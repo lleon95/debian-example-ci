@@ -12,6 +12,8 @@ LABEL "repository"="https://github.com/lleon95/debian-changelog"
 LABEL "homepage"="https://github.com/lleon95/debian-changelog"
 LABEL "maintainer"="lleon95"
 
+RUN apk update && apk add bash git
+
 COPY ./scripts/changelog-ci.sh /changelog-ci.sh
 
 RUN ["chmod", "+x", "/changelog-ci.sh"]
