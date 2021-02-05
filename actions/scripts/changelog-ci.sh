@@ -80,8 +80,7 @@ for line in "${file_entry[@]}";
 do
   echo "$line" >> ${tmp_changelog}
 done
-cat ${filename} | echo >> ${tmp_changelog}
-mv ${tmp_changelog} ${filename}
+cat ${tmp_changelog} ${filename} >> ${filename}
 
 # -----------------------------------------------------------------------------
 # Commit the changelog
