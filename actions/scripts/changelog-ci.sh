@@ -21,7 +21,7 @@ head_ref=$GITHUB_HEAD_REF
 
 # Get project information
 source_name=$(cat $config_file | grep Source | sed 's/Source:\ //g')
-if [ "$?" != "0"]; then
+if [ "$?" != "0" ]; then
   echo "Cannot get the source"
   exit -1
 fi

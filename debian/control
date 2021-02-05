@@ -1,7 +1,7 @@
 Source: test-project
 Section: python
 Priority: optional
-Maintainer: Luis G. Leon Vega <lleon95@gmail.com>
+Maintainer: Luis G. Leon Vega <luis@luisleon.me>
 Build-Depends: debhelper (>= 11),
                dh-python,
                python3-setuptools,
