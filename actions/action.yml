@@ -17,7 +17,7 @@ inputs:
     description: 'Location of the version file. Defaults to debian/version'
     default: 'debian/version'
     required: false
-  version_file:
+  mode_file:
     description: 'Location of the mode file. If not defined, unstable is defined'
     required: false
   committer_username:
