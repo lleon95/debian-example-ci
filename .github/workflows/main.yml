@@ -11,7 +11,6 @@ jobs:
         uses: ./actions/ # uses the one in the action dir
         id: changelog
         with:
-          who-to-greet: 'Mona the Octocat'
           changelog_filename: 'debian/changelog'
           config_file: 'debian/control'
           version_file:  'debian/version'
