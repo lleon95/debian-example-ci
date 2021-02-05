@@ -1,16 +1,37 @@
-# action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: Changelog CI for Debian Packages
+description: Changelog CI is a GitHub Action that generates changelog, then it is committed and/or commented to the release pull request.
+author: Luis G. Leon Vega
+branding:
+  icon: 'clock'
+  color: 'blue'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  changelog_filename:
+    description: 'Name of the changelog file if not provided defaults to debian/changelog'
+    required: false
+    default: 'debian/changelog'
+  config_file:
+    description: 'Location of the control file. Defaults to debian/control'
+    default: 'debian/control'
+    required: false
+  version_file:
+    description: 'Location of the version file. Defaults to debian/version'
+    default: 'debian/version'
+    required: false
+  version_file:
+    description: 'Location of the mode file. If not defined, unstable is defined'
+    required: false
+  committer_username:
+    description: 'Username of that user who will commit'
+    required: false
+    default: 'github-actions[bot]'
+  base_branch:
+    description: 'Branch to compare with (or to merge to)'
+    required: false
+    default: 'develop'
+  committer_email:
+    description: 'Email Address of that user who will commit'
+    required: false
+    default: '41898282+github-actions[bot]@users.noreply.github.com'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}

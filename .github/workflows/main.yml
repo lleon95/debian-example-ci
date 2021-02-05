@@ -1,19 +1,21 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  change_log_maintainance:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: ChangeLog Update Job
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
-        uses: ./actions/ # Uses an action in the root directory
-        id: hello
+      - name: Update ChangeLog
+        uses: ./actions/ # uses the one in the action dir
+        id: changelog
         with:
           who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          changelog_filename: 'debian/changelog'
+          config_file: 'debian/control'
+          version_file:  'debian/version'
+          mode_file: 'debian/mode'
+          committer_username: 'Luis Leon'
+          committer_email: 'lleon95@gmail.com'
+          base_branch: 'HEAD~1'
